@@ -54,7 +54,7 @@ bool DefaultHomingMode::write(Mode::OpModeAccesser & cw)
 bool DefaultHomingMode::executeHoming()
 {
   int hmode = driver->universal_get_value<int8_t>(index, 0x0);
-  if (hmode == 0)
+  if (hmode == 0 || hmode == 37) // see https://github.com/ros-industrial/ros2_canopen/issues/236
   {
     return true;
   }

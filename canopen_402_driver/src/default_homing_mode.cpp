@@ -55,7 +55,7 @@ bool DefaultHomingMode::executeHoming()
 {
   // Apply channel offset to object dictionary index
   int hmode = driver->universal_get_value<int8_t>(base_index + channel_offset_, 0x0);
-  if (hmode == 0)
+  if (hmode == 0 || hmode == 37)
   {
     return true;
   }
